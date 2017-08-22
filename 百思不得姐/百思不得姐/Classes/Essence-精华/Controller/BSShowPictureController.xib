@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BSShowPictureController">
+            <connections>
+                <outlet property="progressView" destination="emm-Hk-KM0" id="6FQ-qC-KxA"/>
+                <outlet property="scrollView" destination="jDp-RV-1cO" id="hea-jh-9MB"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jDp-RV-1cO">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                </scrollView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OSL-JE-avW">
+                    <rect key="frame" x="15" y="40" width="35" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="OSL-JE-avW" secondAttribute="height" multiplier="1:1" id="6HX-eZ-aKB"/>
+                        <constraint firstAttribute="width" constant="35" id="UQY-Pg-0CU"/>
+                    </constraints>
+                    <state key="normal" backgroundImage="show_image_back_icon"/>
+                    <connections>
+                        <action selector="back" destination="-1" eventType="touchUpInside" id="WZA-jX-es0"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m45-Lf-ThT">
+                    <rect key="frame" x="285" y="622" width="70" height="25"/>
+                    <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="70" id="2wI-F2-z5G"/>
+                        <constraint firstAttribute="height" constant="25" id="ohT-z7-5N9"/>
+                    </constraints>
+                    <state key="normal" title="保存"/>
+                    <connections>
+                        <action selector="save" destination="-1" eventType="touchUpInside" id="Seg-f5-nnP"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rYx-v1-vKF">
+                    <rect key="frame" x="200" y="622" width="70" height="25"/>
+                    <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                    <state key="normal" title="转发"/>
+                </button>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="emm-Hk-KM0" customClass="BSProgressView">
+                    <rect key="frame" x="137" y="283" width="100" height="100"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="emm-Hk-KM0" secondAttribute="height" multiplier="1:1" id="CqR-rd-gh1"/>
+                        <constraint firstAttribute="width" constant="100" id="HCq-6f-s69"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="emm-Hk-KM0" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="0WH-xO-7BZ"/>
+                <constraint firstItem="rYx-v1-vKF" firstAttribute="height" secondItem="m45-Lf-ThT" secondAttribute="height" id="9MW-ve-ENg"/>
+                <constraint firstItem="emm-Hk-KM0" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="BfK-S2-630"/>
+                <constraint firstAttribute="trailing" secondItem="m45-Lf-ThT" secondAttribute="trailing" constant="20" id="CVh-Ck-r56"/>
+                <constraint firstAttribute="bottom" secondItem="m45-Lf-ThT" secondAttribute="bottom" constant="20" id="VKh-xG-JLe"/>
+                <constraint firstItem="m45-Lf-ThT" firstAttribute="leading" secondItem="rYx-v1-vKF" secondAttribute="trailing" constant="15" id="dMV-rP-sK1"/>
+                <constraint firstItem="jDp-RV-1cO" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="fFu-CY-fAR"/>
+                <constraint firstItem="rYx-v1-vKF" firstAttribute="width" secondItem="m45-Lf-ThT" secondAttribute="width" id="hYX-cg-oOq"/>
+                <constraint firstItem="rYx-v1-vKF" firstAttribute="bottom" secondItem="m45-Lf-ThT" secondAttribute="bottom" id="j68-L0-hzO"/>
+                <constraint firstItem="OSL-JE-avW" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="40" id="lCs-r6-JKG"/>
+                <constraint firstItem="jDp-RV-1cO" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="mkH-An-EL8"/>
+                <constraint firstAttribute="trailing" secondItem="jDp-RV-1cO" secondAttribute="trailing" id="nEa-gz-fZ1"/>
+                <constraint firstItem="OSL-JE-avW" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="tbE-iA-T8z"/>
+                <constraint firstAttribute="bottom" secondItem="jDp-RV-1cO" secondAttribute="bottom" id="tz7-dX-jzp"/>
+            </constraints>
+        </view>
+    </objects>
+    <resources>
+        <image name="show_image_back_icon" width="35" height="35"/>
+    </resources>
+</document>

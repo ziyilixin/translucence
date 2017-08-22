@@ -1,0 +1,40 @@
+//
+//  PrefixHeader.pch
+//  百思不得姐
+//
+//  Created by WCF on 2017/7/14.
+//  Copyright © 2017年 WCF. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#import "UIView+BSExtension.h"
+#import "UIBarButtonItem+BSExtension.h"
+#import "NSDate+BSExtension.h"
+
+#ifdef DEBUG 
+#define BSLog(...) NSLog(__VA_ARGS__)
+#else
+#define BSLog(...)
+#endif
+
+#define BSLogFunc BSLog(@"%s",__func__)
+
+#define BSRGBColor(r,g,b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0];
+#define BSGlobalBg BSRGBColor(233,233,233)
+
+#define kScreenW [UIScreen mainScreen].bounds.size.width
+#define kScreenH [UIScreen mainScreen].bounds.size.height
+
+#import <AFNetworking.h>
+#import <SVProgressHUD.h>
+#import <MJExtension.h>
+#import <MJRefresh.h>
+#import <UIImageView+WebCache.h>
+#import "DALabeledCircularProgressView.h"
+#import <POP.h>
+
+#import "BSConst.h"
+
+#endif /* PrefixHeader_pch */
