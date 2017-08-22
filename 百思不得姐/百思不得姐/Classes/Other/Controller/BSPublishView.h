@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface BSPublishView : UIView
-+ (instancetype)publishView;
+/**
+ * 显示
+ */
++ (void)show;
 @end

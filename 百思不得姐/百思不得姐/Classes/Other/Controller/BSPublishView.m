@@ -15,8 +15,6 @@
 static CGFloat const XMGAnimationDelay = 0.1;
 static CGFloat const XMGSpringFactor = 10;
 
-#define BSRootView [UIApplication sharedApplication].keyWindow.rootViewController.view
-
 @implementation BSPublishView
 
 + (instancetype)publishView
@@ -24,12 +22,33 @@ static CGFloat const XMGSpringFactor = 10;
     return [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass(self) owner:nil options:nil] lastObject];
 }
 
+static UIWindow *window_;
+
++ (void)show
+{
+    //    BSPublishView *publishView = [BSPublishView publishView];
+    //    UIWindow *window = [UIApplication sharedApplication].keyWindow;
+    //    publishView.frame = window.bounds;
+    //    [window addSubview:publishView];
+
+    //创建窗口
+    window_ = [[UIWindow alloc] init];
+    window_.frame = [UIScreen mainScreen].bounds;
+    window_.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.8];
+    window_.hidden = NO;
+
+    //添加发布界面
+    BSPublishView *publishView = [BSPublishView publishView];
+    publishView.frame = window_.frame;
+    [window_ addSubview:publishView];
+
+}
+
 - (void)awakeFromNib
 {
     [super awakeFromNib];
 
-    //让控制器的View不能点击
-    BSRootView.userInteractionEnabled = NO;
+    //不能点击
     self.userInteractionEnabled = NO;
 
     //数据
@@ -89,7 +108,6 @@ static CGFloat const XMGSpringFactor = 10;
     animation.springSpeed = XMGSpringFactor;
     [animation setCompletionBlock:^(POPAnimation *anim, BOOL finished){
         //标语动画执行完毕, 恢复点击事件
-        BSRootView.userInteractionEnabled = YES;
         self.userInteractionEnabled = YES;
     }];
     [sloganImageView pop_addAnimation:animation forKey:nil];
@@ -121,8 +139,7 @@ static CGFloat const XMGSpringFactor = 10;
  */
 - (void)cancelWithCompletionBlock:(void (^)())completionBlock
 {
-    // 让控制器的view不能被点击
-    BSRootView.userInteractionEnabled = NO;
+    //不能被点击
     self.userInteractionEnabled = NO;
 
     int beginIndex = 1;
@@ -142,8 +159,9 @@ static CGFloat const XMGSpringFactor = 10;
         //监听最后一个动画
         if (i == self.subviews.count - 1) {
             [animation setCompletionBlock:^(POPAnimation *anim, BOOL finished){
-                BSRootView.userInteractionEnabled = YES;
-                [self removeFromSuperview];
+                // 销毁窗口
+                window_ = nil;
+                
                 !completionBlock ? : completionBlock();
             }];
         }

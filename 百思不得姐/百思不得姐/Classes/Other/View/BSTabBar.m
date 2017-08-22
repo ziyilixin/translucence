@@ -33,12 +33,25 @@
     return self;
 }
 
+//UIWindow *window;
+//UIWindow *window2;
+
 - (void)publishClick
 {
-    BSPublishView *publishView = [BSPublishView publishView];
-    UIWindow *window = [UIApplication sharedApplication].keyWindow;
-    publishView.frame = window.bounds;
-    [window addSubview:publishView];
+    //窗口级别 UIWindowLevelNormal < UIWindowLevelAlert < UIWindowLevelStatusBar
+//    window = [[UIWindow alloc] init];
+//    window.frame = CGRectMake(0, 0, 414, 20);
+//    window.backgroundColor = [UIColor purpleColor];
+//    window.windowLevel = UIWindowLevelStatusBar;
+//    window.hidden = NO;
+//
+//    window2 = [[UIWindow alloc] init];
+//    window2.frame = CGRectMake(100, 100, 100, 100);
+//    window2.backgroundColor = [UIColor redColor];
+//    window2.hidden = NO;
+
+    [BSPublishView show];
+    
 }
 
 - (void)layoutSubviews
