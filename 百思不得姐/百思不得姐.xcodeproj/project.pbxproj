@@ -56,6 +56,7 @@
 		54E482501F29E76300292E84 /* BSTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 54E4824F1F29E76300292E84 /* BSTextField.m */; };
 		BB345EAC219D688700968A56 /* FLAnimatedImageView+BSExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = BB345EAB219D688700968A56 /* FLAnimatedImageView+BSExtension.m */; };
 		BB345EAF219D68FB00968A56 /* UIImage+BSExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = BB345EAD219D68FB00968A56 /* UIImage+BSExtension.m */; };
+		BB345EB2219D73B700968A56 /* translucence.gif in Resources */ = {isa = PBXBuildFile; fileRef = BB345EB1219D73B700968A56 /* translucence.gif */; };
 		EEE285A80606911C4551F17D /* libPods-百思不得姐.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 177C68AB4DF1865274ACE6F8 /* libPods-百思不得姐.a */; };
 /* End PBXBuildFile section */
 
@@ -168,6 +169,7 @@
 		BB345EAB219D688700968A56 /* FLAnimatedImageView+BSExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FLAnimatedImageView+BSExtension.m"; sourceTree = "<group>"; };
 		BB345EAD219D68FB00968A56 /* UIImage+BSExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+BSExtension.m"; sourceTree = "<group>"; };
 		BB345EAE219D68FB00968A56 /* UIImage+BSExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+BSExtension.h"; sourceTree = "<group>"; };
+		BB345EB1219D73B700968A56 /* translucence.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = translucence.gif; sourceTree = "<group>"; };
 		E3BFDDBBE44FDD6BE96B3A73 /* Pods-百思不得姐.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-百思不得姐.release.xcconfig"; path = "Pods/Target Support Files/Pods-百思不得姐/Pods-百思不得姐.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -258,6 +260,7 @@
 		54565C9F1F18CD05007513A0 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				BB345EB0219D739A00968A56 /* Picture */,
 				54565CA01F18CD05007513A0 /* Essence-精华 */,
 				54565CA61F18CD05007513A0 /* FriendTrends-关注 */,
 				54565CAC1F18CD05007513A0 /* Me-我 */,
@@ -519,6 +522,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		BB345EB0219D739A00968A56 /* Picture */ = {
+			isa = PBXGroup;
+			children = (
+				BB345EB1219D73B700968A56 /* translucence.gif */,
+			);
+			path = Picture;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -632,6 +643,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5485F9D81F36FFB0008AD53D /* BSTopicCell.xib in Resources */,
+				BB345EB2219D73B700968A56 /* translucence.gif in Resources */,
 				5480AD931F4850D10060F274 /* BSShowPictureController.xib in Resources */,
 				54E2F6441F1E58EE00CEE98D /* BSFriendTrendsViewController.xib in Resources */,
 				5441825D1F2058B400AE35A1 /* BSRecommendUserCell.xib in Resources */,
