@@ -11,7 +11,7 @@
 #import "BSTopicPictureView.h"
 
 @interface BSTopicCell ()
-@property (weak, nonatomic) IBOutlet UIImageView *headImageView;//头像
+@property (weak, nonatomic) IBOutlet FLAnimatedImageView *headImageView;//头像
 @property (weak, nonatomic) IBOutlet UILabel *nickaNameLabel;//昵称
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;//时间
 @property (weak, nonatomic) IBOutlet UIButton *dingButton;//顶
@@ -48,39 +48,56 @@
 
 - (void)setFrame:(CGRect)frame
 {
-    frame.origin.x = BSTopicCellMargin;
-    frame.size.width -= 2*BSTopicCellMargin;
-    frame.size.height -= BSTopicCellMargin;
-    frame.origin.y += BSTopicCellMargin;
-
+    if (self.topic.cellHeight > 0) {
+        frame.origin.x = BSTopicCellMargin;
+        frame.size.width -= 2*BSTopicCellMargin;
+        frame.size.height -= BSTopicCellMargin;
+        frame.origin.y += BSTopicCellMargin;
+    }
+    
     [super setFrame:frame];
 }
 
 - (void)setTopic:(BSTopic *)topic
 {
     _topic = topic;
-
-    [self.headImageView sd_setImageWithURL:[NSURL URLWithString:topic.profile_image] placeholderImage:[UIImage imageNamed:@"defaultUserIcon"]];
+    
+    //加V
     self.sinavImageView.hidden = !topic.isSina_v;
+    
+    //头像
+    [self.headImageView setHeader:topic.profile_image];
+    
+    //名字
     self.nickaNameLabel.text = topic.name;
+    
+    //设置帖子的创建时间
     self.timeLabel.text = topic.created_at;
-
+    
     [self setUpButton:self.dingButton count:topic.ding placeHolder:@"顶"];
     [self setUpButton:self.caiButton count:topic.cai placeHolder:@"踩"];
     [self setUpButton:self.shareButton count:topic.repost placeHolder:@"分享"];
     [self setUpButton:self.commentButton count:topic.comment placeHolder:@"评论"];
     
+    // 设置帖子的文字内容
     self.text_Label.text = topic.text;
-
+    
     //根据模型类型(帖子类型)添加对应的内容到cell的中间
     if (topic.type == BSTopicTypePicture) {// 图片帖子
+        self.pictureView.hidden = NO;
         self.pictureView.topic = topic;
         self.pictureView.frame = topic.pictureF;
     }
     else if (topic.type == BSTopicTypeVoice) {//声音帖子
-
+        self.pictureView.hidden = YES;
     }
-
+    else if (topic.type == BSTopicTypeVideo) {//视频帖子
+        self.pictureView.hidden = YES;
+    }
+    else { //段子
+        self.pictureView.hidden = YES;
+    }
+    
 }
 
 - (void)setUpButton:(UIButton *)button count:(NSInteger)count placeHolder:(NSString *)placeHolder

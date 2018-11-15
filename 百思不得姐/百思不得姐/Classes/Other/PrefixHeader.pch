@@ -27,14 +27,22 @@
 #define kScreenW [UIScreen mainScreen].bounds.size.width
 #define kScreenH [UIScreen mainScreen].bounds.size.height
 
+#define kStatusBarHeight [[UIApplication sharedApplication] statusBarFrame].size.height
+#define kTopHeight 44.0
+#define kNavigationBarHeight (kStatusBarHeight + kTopHeight)
+#define kTabBarHeight ([[UIApplication sharedApplication] statusBarFrame].size.height>20?83:49)
+#define IS_IPHONEX ([[UIScreen mainScreen] bounds].size.height == 812 || [[UIScreen mainScreen] bounds].size.height == 896)
+
 #import <AFNetworking.h>
 #import <SVProgressHUD.h>
 #import <MJExtension.h>
 #import <MJRefresh.h>
-#import <UIImageView+WebCache.h>
+#import "FLAnimatedImageView+WebCache.h"
 #import "DALabeledCircularProgressView.h"
 #import <POP.h>
 
 #import "BSConst.h"
+#import "FLAnimatedImageView+BSExtension.h"
+#import "UIImage+BSExtension.h"
 
 #endif /* PrefixHeader_pch */

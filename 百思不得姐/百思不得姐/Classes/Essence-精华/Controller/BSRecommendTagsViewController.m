@@ -56,6 +56,7 @@ static NSString * const BSTagsId = @"tag";
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.rowHeight = 70;
     self.tableView.backgroundColor = BSGlobalBg;
+    self.tableView.contentInset = UIEdgeInsetsMake(kNavigationBarHeight, 0, 0, 0);
 }
 
 - (void)didReceiveMemoryWarning {

@@ -28,6 +28,7 @@
 {
     _category = category;
 
+    self.textLabel.font = [UIFont systemFontOfSize:14.0];
     self.textLabel.text = category.name;
 }
 
@@ -35,8 +36,10 @@
 {
     [super layoutSubviews];
 
+    self.textLabel.x = 8;
     self.textLabel.y = 2;
     self.textLabel.height = self.contentView.height - 2*self.textLabel.y;
+    self.textLabel.width = self.contentView.width;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

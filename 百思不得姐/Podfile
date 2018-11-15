@@ -1,11 +1,14 @@
 platform :'ios', '8.0'
-
+# ignore all warnings from all pods
+inhibit_all_warnings!
 target '百思不得姐' do
-	pod 'AFNetworking'
-	pod 'SDWebImage'
-	pod 'SVProgressHUD'
-	pod 'MJExtension'
-	pod 'MJRefresh'
-	pod 'DACircularProgress'
-	pod 'pop'
+pod 'AFNetworking'
+pod 'SDWebImage'
+pod 'SDWebImage/GIF'
+pod 'FLAnimatedImage'
+pod 'SVProgressHUD'
+pod 'MJExtension'
+pod 'MJRefresh'
+pod 'DACircularProgress'
+pod 'pop'
 end

@@ -54,6 +54,8 @@
 		54E4824A1F29C2FF00292E84 /* BSLoginRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54E482481F29C2FF00292E84 /* BSLoginRegisterViewController.xib */; };
 		54E4824D1F29C7E900292E84 /* BSVerticalButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 54E4824C1F29C7E900292E84 /* BSVerticalButton.m */; };
 		54E482501F29E76300292E84 /* BSTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 54E4824F1F29E76300292E84 /* BSTextField.m */; };
+		BB345EAC219D688700968A56 /* FLAnimatedImageView+BSExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = BB345EAB219D688700968A56 /* FLAnimatedImageView+BSExtension.m */; };
+		BB345EAF219D68FB00968A56 /* UIImage+BSExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = BB345EAD219D68FB00968A56 /* UIImage+BSExtension.m */; };
 		EEE285A80606911C4551F17D /* libPods-百思不得姐.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 177C68AB4DF1865274ACE6F8 /* libPods-百思不得姐.a */; };
 /* End PBXBuildFile section */
 
@@ -162,6 +164,10 @@
 		54E4824C1F29C7E900292E84 /* BSVerticalButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSVerticalButton.m; sourceTree = "<group>"; };
 		54E4824E1F29E76300292E84 /* BSTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSTextField.h; sourceTree = "<group>"; };
 		54E4824F1F29E76300292E84 /* BSTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSTextField.m; sourceTree = "<group>"; };
+		BB345EAA219D688700968A56 /* FLAnimatedImageView+BSExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FLAnimatedImageView+BSExtension.h"; sourceTree = "<group>"; };
+		BB345EAB219D688700968A56 /* FLAnimatedImageView+BSExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FLAnimatedImageView+BSExtension.m"; sourceTree = "<group>"; };
+		BB345EAD219D68FB00968A56 /* UIImage+BSExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+BSExtension.m"; sourceTree = "<group>"; };
+		BB345EAE219D68FB00968A56 /* UIImage+BSExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+BSExtension.h"; sourceTree = "<group>"; };
 		E3BFDDBBE44FDD6BE96B3A73 /* Pods-百思不得姐.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-百思不得姐.release.xcconfig"; path = "Pods/Target Support Files/Pods-百思不得姐/Pods-百思不得姐.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -456,6 +462,10 @@
 		54565CBB1F18CD05007513A0 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				BB345EAA219D688700968A56 /* FLAnimatedImageView+BSExtension.h */,
+				BB345EAB219D688700968A56 /* FLAnimatedImageView+BSExtension.m */,
+				BB345EAE219D68FB00968A56 /* UIImage+BSExtension.h */,
+				BB345EAD219D68FB00968A56 /* UIImage+BSExtension.m */,
 				54565CBC1F18CD05007513A0 /* UIBarButtonItem+BSExtension.h */,
 				54565CBD1F18CD05007513A0 /* UIBarButtonItem+BSExtension.m */,
 				54565CBE1F18CD05007513A0 /* UIView+BSExtension.h */,
@@ -520,7 +530,6 @@
 				54565C0B1F185106007513A0 /* Sources */,
 				54565C0C1F185106007513A0 /* Frameworks */,
 				54565C0D1F185106007513A0 /* Resources */,
-				153F8578872DAC63F9728C86 /* [CP] Embed Pods Frameworks */,
 				555CAE319CC51C31C323146D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
@@ -575,12 +584,12 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = BS;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = WCF;
 				TargetAttributes = {
 					54565C0E1F185106007513A0 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = T74F43753A;
+						DevelopmentTeam = 7BJJ5HEDBX;
 						ProvisioningStyle = Automatic;
 					};
 					54565C271F185106007513A0 = {
@@ -660,28 +669,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-百思不得姐-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		153F8578872DAC63F9728C86 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-百思不得姐/Pods-百思不得姐-frameworks.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		555CAE319CC51C31C323146D /* [CP] Copy Pods Resources */ = {
@@ -690,9 +687,14 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-百思不得姐/Pods-百思不得姐-resources.sh",
+				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
+				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SVProgressHUD.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -710,6 +712,7 @@
 				544002D41F4357BF00BABF1C /* BSTopicPictureView.m in Sources */,
 				5441825C1F2058B400AE35A1 /* BSRecommendUserCell.m in Sources */,
 				549B02831F259B2E008EE7EA /* BSRecommendTags.m in Sources */,
+				BB345EAC219D688700968A56 /* FLAnimatedImageView+BSExtension.m in Sources */,
 				544182541F2045B200AE35A1 /* BSRecommendCategoryCell.m in Sources */,
 				5480AD971F495A960060F274 /* BSPublishView.m in Sources */,
 				54E2F6481F1E616D00CEE98D /* BSRecommendViewController.m in Sources */,
@@ -727,6 +730,7 @@
 				54E482501F29E76300292E84 /* BSTextField.m in Sources */,
 				549AEF8C1F35BE4800E68D43 /* BSTopic.m in Sources */,
 				545062121F30CD0100D29706 /* BSPushGuideView.m in Sources */,
+				BB345EAF219D68FB00968A56 /* UIImage+BSExtension.m in Sources */,
 				544182501F20444F00AE35A1 /* BSRecommendCategory.m in Sources */,
 				54565CCF1F18CD05007513A0 /* UIView+BSExtension.m in Sources */,
 				544182581F20577600AE35A1 /* BSRecommendUser.m in Sources */,
@@ -784,15 +788,23 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -815,7 +827,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -832,15 +844,23 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -857,7 +877,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -870,10 +890,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				DEVELOPMENT_TEAM = T74F43753A;
+				DEVELOPMENT_TEAM = 7BJJ5HEDBX;
 				GCC_PREFIX_HEADER = "百思不得姐/Classes/Other/PrefixHeader.pch";
 				INFOPLIST_FILE = "百思不得姐/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.cf.cn.-----";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -886,10 +906,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				DEVELOPMENT_TEAM = T74F43753A;
+				DEVELOPMENT_TEAM = 7BJJ5HEDBX;
 				GCC_PREFIX_HEADER = "百思不得姐/Classes/Other/PrefixHeader.pch";
 				INFOPLIST_FILE = "百思不得姐/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.cf.cn.-----";
 				PRODUCT_NAME = "$(TARGET_NAME)";

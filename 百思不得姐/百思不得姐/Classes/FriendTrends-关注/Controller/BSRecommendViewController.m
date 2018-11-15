@@ -58,7 +58,7 @@ static NSString * const userId = @"user";
     [self.userTableView registerNib:[UINib nibWithNibName:NSStringFromClass([BSRecommendUserCell class]) bundle:nil] forCellReuseIdentifier:userId];
 
     self.automaticallyAdjustsScrollViewInsets = NO;
-    self.categoryTableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
+    self.categoryTableView.contentInset = UIEdgeInsetsMake(kNavigationBarHeight, 0, 0, 0);
     self.userTableView.contentInset = self.categoryTableView.contentInset;
     self.userTableView.rowHeight = 70;
 

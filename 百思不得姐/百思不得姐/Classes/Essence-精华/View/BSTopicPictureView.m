@@ -12,7 +12,7 @@
 #import "BSShowPictureController.h"
 
 @interface BSTopicPictureView ()
-@property (weak, nonatomic) IBOutlet UIImageView *pictureImageView;
+@property (weak, nonatomic) IBOutlet FLAnimatedImageView *pictureImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *gifImageView;
 @property (weak, nonatomic) IBOutlet UIButton *seeBigButton;
 @property (nonatomic, weak) BSProgressView *progressView;
@@ -46,35 +46,33 @@
 
     //立马显示最新的进度值(防止因为网速慢, 导致显示的是其他图片的下载进度)
     [self.progressView setProgress:topic.pictureProgress animated:NO];
-
+    
     //设置图片
-    [self.pictureImageView sd_setImageWithURL:[NSURL URLWithString:topic.large_image] placeholderImage:nil options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+    [self.pictureImageView sd_setImageWithURL:[NSURL URLWithString:topic.large_image] placeholderImage:nil options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
         self.progressView.hidden = NO;
         topic.pictureProgress = 1.0 * receivedSize / expectedSize;
         [self.progressView setProgress:topic.pictureProgress animated:NO];
-    } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+    } completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
         self.progressView.hidden = YES;
-
+        
         //如果是大图片，才需要绘图处理
         if (topic.isBigPicture == NO) return;
-
+        
         //开启图形上下文
         UIGraphicsBeginImageContextWithOptions(topic.pictureF.size, YES, 0.0);
-
+        
         //将下载完成的图片绘制到图形上下文
         CGFloat width = topic.pictureF.size.width;
         CGFloat height = topic.pictureF.size.width * image.size.height / image.size.width;
         [image drawInRect:CGRectMake(0, 0, width, height)];
-
+        
         //获得图片
         self.pictureImageView.image = UIGraphicsGetImageFromCurrentImageContext();
-
+        
         //结束图形上下文
         UIGraphicsEndImageContext();
-
     }];
-
-
+    
     //判断是否是gif
     NSString *extension = topic.large_image.pathExtension;
     self.gifImageView.hidden = ![extension.lowercaseString isEqualToString:@"gif"];

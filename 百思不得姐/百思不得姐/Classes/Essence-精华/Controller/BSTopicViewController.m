@@ -50,7 +50,7 @@ static NSString * const topicCellId = @"topic";
 {
     //设置内边距
     CGFloat bottom = self.tabBarController.tabBar.height;
-    CGFloat top = BSTitlesViewH + BSTitlesViewY;
+    CGFloat top = BSTitlesViewH + kNavigationBarHeight;
     self.tableView.contentInset = UIEdgeInsetsMake(top, 0, bottom, 0);
     //设置滚动条的内边距
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
@@ -96,6 +96,10 @@ static NSString * const topicCellId = @"topic";
 
         //字典数组转模型数组
         self.topics = [BSTopic mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
+        
+        [self.topics enumerateObjectsUsingBlock:^(BSTopic *topic, NSUInteger idx, BOOL * _Nonnull stop) {
+            BSLog(@"%f",topic.cellHeight);
+        }];
 
         //刷新数据
         [self.tableView reloadData];
@@ -138,6 +142,10 @@ static NSString * const topicCellId = @"topic";
         //字典数组转模型数组
         NSArray *topicsArr = [BSTopic mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
         [self.topics addObjectsFromArray:topicsArr];
+        
+        [self.topics enumerateObjectsUsingBlock:^(BSTopic *topic, NSUInteger idx, BOOL * _Nonnull stop) {
+            BSLog(@"%f",topic.cellHeight);
+        }];
 
         self.maxtime = responseObject[@"info"][@"maxtime"];
 

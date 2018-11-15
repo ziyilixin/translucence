@@ -94,6 +94,8 @@ static UIWindow *window_;
 
     //添加标语
     UIImageView *sloganImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"app_slogan"]];
+    sloganImageView.centerX = kScreenW * 0.5;
+    sloganImageView.y = -100;
     [self addSubview:sloganImageView];
 
     //标语动画

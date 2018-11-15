@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -19,7 +18,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="256.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NQB-QO-tRX" userLabel="头像">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NQB-QO-tRX" userLabel="头像" customClass="FLAnimatedImageView">
                         <rect key="frame" x="10" y="10" width="35" height="35"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="NQB-QO-tRX" secondAttribute="height" multiplier="1:1" id="57I-xx-enD"/>
@@ -79,7 +78,7 @@
                                 <state key="highlighted" image="mainCellDingClick"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Av6-Vr-KBJ" userLabel="踩">
-                                <rect key="frame" x="80" y="0.5" width="80" height="43"/>
+                                <rect key="frame" x="80" y="1" width="80" height="43"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <state key="normal" title="545" image="mainCellCai">
@@ -88,7 +87,7 @@
                                 <state key="highlighted" image="mainCellCaiClick"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PNf-KN-Ufm" userLabel="分享">
-                                <rect key="frame" x="160" y="0.5" width="80" height="43"/>
+                                <rect key="frame" x="160" y="1" width="80" height="43"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <state key="normal" title="545" image="mainCellShare">
@@ -97,7 +96,7 @@
                                 <state key="highlighted" image="mainCellShareClick"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5v8-rn-MHv" userLabel="评论">
-                                <rect key="frame" x="240" y="0.5" width="80" height="43"/>
+                                <rect key="frame" x="240" y="1" width="80" height="43"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <state key="normal" title="545" image="mainCellComment">
@@ -112,13 +111,13 @@
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cell-button-line" translatesAutoresizingMaskIntoConstraints="NO" id="6S1-SP-OZa" userLabel="line2">
-                                <rect key="frame" x="160" y="-0.5" width="1" height="44"/>
+                                <rect key="frame" x="160" y="0.0" width="1" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="1" id="g6G-2b-mDq"/>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cell-button-line" translatesAutoresizingMaskIntoConstraints="NO" id="1jR-hK-wiC" userLabel="line3">
-                                <rect key="frame" x="240" y="-0.5" width="1" height="44"/>
+                                <rect key="frame" x="240" y="0.0" width="1" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="1" id="bcO-kj-ft2"/>
                                 </constraints>
@@ -181,7 +180,7 @@
                 <outlet property="caiButton" destination="Av6-Vr-KBJ" id="fsX-5m-Rnr"/>
                 <outlet property="commentButton" destination="5v8-rn-MHv" id="tD5-0W-c7V"/>
                 <outlet property="dingButton" destination="tFO-ZY-p7l" id="3KQ-zg-xCB"/>
-                <outlet property="headImageView" destination="NQB-QO-tRX" id="W7v-Pz-Lxb"/>
+                <outlet property="headImageView" destination="NQB-QO-tRX" id="HqB-B5-jCY"/>
                 <outlet property="nickaNameLabel" destination="sbU-eb-dz6" id="fPA-XU-tc6"/>
                 <outlet property="shareButton" destination="PNf-KN-Ufm" id="EDf-II-0lj"/>
                 <outlet property="sinavImageView" destination="A69-vA-IBH" id="k6Y-Fy-cvU"/>

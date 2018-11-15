@@ -12,7 +12,6 @@
 @implementation BSTopic
 {
     CGFloat _cellHeight;
-    CGRect _pictureF;
 }
 
 + (NSDictionary *)mj_replacedKeyFromPropertyName
@@ -64,35 +63,58 @@
 {
     if (!_cellHeight) {
         // 文字的最大尺寸
-        CGSize maxSize = CGSizeMake(kScreenW - 4 * BSTopicCellMargin, MAXFLOAT);
+        CGSize maxSize = CGSizeMake(kScreenW - 2 * BSTopicCellMargin, MAXFLOAT);
         // 计算文字的高度
         CGFloat textH = [self.text boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:14]} context:nil].size.height;
-
+        
         // cell的高度
         // 文字部分的高度
         _cellHeight = BSTopicCellTextY + textH + BSTopicCellMargin;
-
+        
         // 根据段子的类型来计算cell的高度
         if (self.type == BSTopicTypePicture) { // 图片帖子
             // 图片显示出来的宽度
             CGFloat pictureW = maxSize.width;
             // 显示显示出来的高度
             CGFloat pictureH = pictureW * self.height / self.width;
-            if (pictureH >= BSTopicCellPictureMaxH) { // 图片高度过长
-                pictureH = BSTopicCellPictureBreakH;
-                self.bigPicture = YES; //大图
+            if (pictureH >= (kScreenH / 2)) { // 图片高度过长
+                NSString *extension = self.large_image.pathExtension;
+                //判断是否是GIF
+                if (![extension.lowercaseString isEqualToString:@"gif"]) {
+                    pictureH = BSTopicCellPictureBreakH;
+                    self.bigPicture = YES; //大图
+                }
+                else {
+                    self.bigPicture = NO;
+                }
+                
             }
-
+            
             // 计算图片控件的frame
             CGFloat pictureX = BSTopicCellMargin;
             CGFloat pictureY = BSTopicCellTextY + textH + BSTopicCellMargin;
             _pictureF = CGRectMake(pictureX, pictureY, pictureW, pictureH);
-
+            
             _cellHeight += pictureH + BSTopicCellMargin;
         } else if (self.type == BSTopicTypeVoice) { // 声音帖子
-
+            CGFloat voiceX = BSTopicCellMargin;
+            CGFloat voiceY = BSTopicCellTextY + textH + BSTopicCellMargin;
+            CGFloat voiceW = maxSize.width;
+            CGFloat voiceH = voiceW * self.height / self.width;
+            _voiceF = CGRectMake(voiceX, voiceY, voiceW, voiceH);
+            
+            _cellHeight += voiceH + BSTopicCellMargin;
         }
-
+        else if (self.type == BSTopicTypeVideo) { //视频帖子
+            CGFloat videoX = BSTopicCellMargin;
+            CGFloat videoY = BSTopicCellTextY + textH + BSTopicCellMargin;
+            CGFloat videoW = maxSize.width;
+            CGFloat videoH = videoW * self.height / self.width;
+            _videoF = CGRectMake(videoX, videoY, videoW, videoH);
+            
+            _cellHeight += videoH + BSTopicCellMargin;
+        }
+        
         // 底部工具条的高度
         _cellHeight += BSTopicCellBottomBarH + BSTopicCellMargin;
     }

@@ -10,7 +10,7 @@
 #import "BSRecommendTags.h"
 
 @interface BSRecommendTagsCell ()
-@property (weak, nonatomic) IBOutlet UIImageView *imagelistImg;
+@property (weak, nonatomic) IBOutlet FLAnimatedImageView *imagelistImg;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *subNumberLabel;
 

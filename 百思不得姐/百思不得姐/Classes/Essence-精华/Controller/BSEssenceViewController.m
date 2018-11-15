@@ -102,7 +102,7 @@
     titlesView.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.7];
     titlesView.width = self.view.width;
     titlesView.height = BSTitlesViewH;
-    titlesView.y = BSTitlesViewY;
+    titlesView.y = kNavigationBarHeight;
     [self.view addSubview:titlesView];
     self.titlesView = titlesView;
 

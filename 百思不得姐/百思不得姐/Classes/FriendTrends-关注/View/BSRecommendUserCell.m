@@ -10,7 +10,7 @@
 #import "BSRecommendUser.h"
 
 @interface BSRecommendUserCell ()
-@property (weak, nonatomic) IBOutlet UIImageView *headImg;
+@property (weak, nonatomic) IBOutlet FLAnimatedImageView *headImg;
 @property (weak, nonatomic) IBOutlet UILabel *screenNameLab;
 @property (weak, nonatomic) IBOutlet UILabel *fansCountLab;
 @end

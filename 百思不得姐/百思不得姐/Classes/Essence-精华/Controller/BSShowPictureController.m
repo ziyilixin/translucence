@@ -12,7 +12,7 @@
 
 @interface BSShowPictureController ()
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
-@property (nonatomic,weak) UIImageView *imageView;
+@property (nonatomic,weak) FLAnimatedImageView *imageView;
 @property (weak, nonatomic) IBOutlet BSProgressView *progressView;
 
 @end
@@ -23,7 +23,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 
-    UIImageView *imageView = [[UIImageView alloc] init];
+    FLAnimatedImageView *imageView = [[FLAnimatedImageView alloc] init];
     imageView.userInteractionEnabled = YES;
     [imageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(back)]];
     [self.scrollView addSubview:imageView];
@@ -43,9 +43,10 @@
 
     //马上显示当前图片的下载进度
     [self.progressView setProgress:self.topic.pictureProgress animated:NO];
-    [self.imageView sd_setImageWithURL:[NSURL URLWithString:self.topic.large_image] placeholderImage:nil options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+    
+    [self.imageView sd_setImageWithURL:[NSURL URLWithString:self.topic.large_image] placeholderImage:nil options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
         [self.progressView setProgress:1.0 * receivedSize / expectedSize animated:NO];
-    } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+    } completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
         self.progressView.hidden = YES;
     }];
 }
